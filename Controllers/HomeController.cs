@@ -18,6 +18,7 @@ namespace HexaopsNewWebAPP.Controllers
 			return View();
 		}
 
+
 		[Route("/hakkinda")]
         public IActionResult About()
         {

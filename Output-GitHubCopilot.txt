@@ -1,0 +1,6 @@
+﻿GitHub Copilot 1.137.0.0 (v1.137.0.0@2f127d06d)
+GitHub Copilot Agent 1.137.0 (1.137.0)
+[DEBUG] [agent] [2024-02-09T17:48:22.762Z] Agent service starting
+[DEBUG] [agent] [2024-02-09T17:48:22.790Z] Telemetry initialized
+[INFO] [auth] [2024-02-09T17:48:23.214Z] Invalid copilot token: missing token: 404 
+Auth Status: NotAuthorized
