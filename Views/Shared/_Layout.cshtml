@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="~/assets/css/demo/start-hub-3/base.css">
     <link rel="stylesheet" href="~/assets/css/demo/start-hub-3/start-hub-3.css">
 
+
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,11 +26,67 @@
     <link rel="shortcut icon" type="image/x-icon" href="~/assets/images/demo/start-hub-3/favicon.png">
     <title>HEXAOPS TECHNOLOGY</title>
 
+    
+
+
+    <script>
+        function showPopup() {
+            var popup = document.getElementById('popup-content');
+            popup.style.display = 'block';
+        }
+
+        function hidePopup() {
+            var popup = document.getElementById('popup-content');
+            popup.style.display = 'none';
+        }
+    </script>
+
+    <style>
+        #popup-content {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            display: none; /* Başlangıçta görünmez */
+            max-width: 80%; /* Pop-up penceresinin maksimum genişliği */
+        }
+
+            #popup-content h2 {
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+
+            #popup-content p {
+                font-size: 16px;
+                margin-bottom: 15px;
+            }
+
+            #popup-content button {
+                background-color: #007bff;
+                color: #ffffff;
+                border: none;
+                padding: 10px 20px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+
+                #popup-content button:hover {
+                    background-color: #0056b3;
+                }
+
+    </style>
+    
+    
 </head>
 <body data-lqd-cc="t-nav-breakpoint="1199" data-mobile-nav-style="minimal" data-mobile-nav-scheme="gray" data-mobile-nav-trigger-alignment="right" data-mobile-header-scheme="light" data-mobile-logo-alignment="default" data-overlay-onmobile="false" data-disable-animations-onmobile="true">
     <div id="wrap" class="bg-white">
         <div class="lqd-sticky-placeholder hidden"></div>
-        <header id="site-header" class="main-header" data-sticky-header="true" data-sticky-values-measured="false">
+        <header id="site-header" class="--header" data-sticky-header="true" data-sticky-values-measured="false">
             <section class="lqd-section lqd-hide-onstuck bg-no-repeat bg-top-right bg-darkpurple transition-all pt-10 md:hidden" style="background-image: url('./assets/images/demo/start-hub-3/shape-header-ball1.png');">
                 <div class="flex items-center justify-center">
                     <div class="rounded-4 mr-20 ld-fancy-heading relative bg-pink-100">
@@ -47,7 +105,7 @@
                             <div class="lqd-fancy-menu lqd-custom-menu relative lqd-menu-td-none ml-30 link-13 transition-opacity link-black">
                                 <ul class="reset-ul inline-ul">
                                     <li class="mr-10 mb-10">
-                                        <a href="#" class="tracking-0/1 leading-16"><span class="link-icon inline-flex hide-if-empty left-icon icon-next-to-label"></span> Gizlilik Politikası </a>
+                                        <a href="#" onclick="showPopup()" class="tracking-0/1 leading-16 gizlilikpolitika"><span class="link-icon inline-flex hide-if-empty left-icon icon-next-to-label"></span> Gizlilik Politikası </a>
                                     </li>
                                     <li>
                                         <a href="#footermap" class="tracking-0/1 leading-16"><span class="link-icon inline-flex hide-if-empty left-icon icon-next-to-label"></span> İletişim </a>
@@ -61,9 +119,52 @@
 
 
 
+                                    @* POP-UP GİZLİLİK POLİTİKASI *@
+
+                                    <div id="popup-content" style="display: none;">
+                                        <h2>Gizlilik Politikası</h2>
+                                        <p>
+                                            Son güncellenme: 15/02/2024 <br />
+
+                                            Güvenliğiniz bizim için önemli. Bu sebeple bizimle paylaşacağınız kişisel verileriz hassasiyetle korunmaktadır.
+
+                                            Biz, Hexaops, veri sorumlusu olarak, bu gizlilik ve kişisel verilerin korunması politikası ile, hangi kişisel verilerinizin hangi amaçla işleneceği, işlenen verilerin kimlerle ve neden paylaşılabileceği, veri işleme yöntemimiz ve hukuki sebeplerimiz ile; işlenen verilerinize ilişkin haklarınızın neler olduğu hususunda sizleri aydınlatmayı amaçlıyoruz.
+
+                                            Toplanan Kişisel Verileriniz, Toplanma Yöntemi ve Hukuki Sebebi
+                                            IP adresiniz ve kullanıcı aracısı bilgileriniz, sadece analiz yapmak amacıyla ve çerezler (cookies) vb. teknolojiler vasıtasıyla, otomatik veya otomatik olmayan yöntemlerle ve bazen de analitik sağlayıcılar, reklam ağları, arama bilgi sağlayıcıları, teknoloji sağlayıcıları gibi üçüncü taraflardan elde edilerek, kaydedilerek, depolanarak ve güncellenerek, aramızdaki hizmet ve sözleşme ilişkisi çerçevesinde ve süresince, meşru menfaat işleme şartına dayanılarak işlenecektir.
+
+                                            Kişisel Verilerinizin İşlenme Amacı
+                                            Bizimle paylaştığınız kişisel verileriniz sadece analiz yapmak suretiyle; sunduğumuz hizmetlerin gerekliliklerini en iyi şekilde yerine getirebilmek, bu hizmetlere sizin tarafınızdan ulaşılabilmesini ve maksimum düzeyde faydalanılabilmesini sağlamak, hizmetlerimizi, ihtiyaçlarınız doğrultusunda geliştirebilmek ve sizleri daha geniş kapsamlı hizmet sağlayıcıları ile yasal çerçeveler içerisinde buluşturabilmek ve kanundan doğan zorunlulukların (kişisel verilerin talep halinde adli ve idari makamlarla paylaşılması) yerine getirilebilmesi amacıyla, sözleşme ve hizmet süresince, amacına uygun ve ölçülü bir şekilde işlenecek ve güncellenecektir.
+
+                                            Toplanan Kişisel Verilerin Kimlere ve Hangi Amaçlarla Aktarılabileceği
+                                            Bizimle paylaştığınız kişisel verileriniz; faaliyetlerimizi yürütmek üzere hizmet aldığımız ve/veya verdiğimiz, sözleşmesel ilişki içerisinde bulunduğumuz, iş birliği yaptığımız, yurt içi ve yurt dışındaki 3. şahıslar ile kurum ve kuruluşlara ve talep halinde adli ve idari makamlara, gerekli teknik ve idari önlemler alınması koşulu ile aktarılabilecektir.
+
+                                            Kişisel Verileri İşlenen Kişi Olarak Haklarınız
+                                            KVKK madde 11 uyarınca herkes, veri sorumlusuna başvurarak aşağıdaki haklarını kullanabilir:
+
+                                            Kişisel veri işlenip işlenmediğini öğrenme,
+                                            Kişisel verileri işlenmişse buna ilişkin bilgi talep etme,
+                                            Kişisel verilerin işlenme amacını ve bunların amacına uygun kullanılıp kullanılmadığını öğrenme,
+                                            Yurt içinde veya yurt dışında kişisel verilerin aktarıldığı üçüncü kişileri bilme,
+                                            Kişisel verilerin eksik veya yanlış işlenmiş olması hâlinde bunların düzeltilmesini isteme,
+                                            Kişisel verilerin silinmesini veya yok edilmesini isteme,
+                                            (e) ve (f) bentleri uyarınca yapılan işlemlerin, kişisel verilerin aktarıldığı üçüncü kişilere bildirilmesini isteme,
+                                            İşlenen verilerin münhasıran otomatik sistemler vasıtasıyla analiz edilmesi suretiyle kişinin kendisi aleyhine bir sonucun ortaya çıkmasına itiraz etme,
+                                            Kişisel verilerin kanuna aykırı olarak işlenmesi sebebiyle zarara uğraması hâlinde zararın giderilmesini talep etme, haklarına sahiptir.
+                                            Yukarıda sayılan haklarınızı kullanmak üzere info@hexaops.net üzerinden bizimle iletişime geçebilirsiniz.
+
+                                            İletişim
+                                            Sizlere hizmet sunabilmek amaçlı analizler yapabilmek için, sadece gerekli olan kişisel verilerinizin, işbu gizlilik ve kişisel verilerin işlenmesi politikası uyarınca işlenmesini, kabul edip etmemek hususunda tamamen özgürsünüz. Siteyi kullanmaya devam ettiğiniz takdirde kabul etmiş olduğunuz tarafımızca varsayılacak olup, daha ayrıntılı bilgi için bizimle info@hexaops.net e-mail adresi üzerinden iletişime geçmekten lütfen çekinmeyiniz.
+                                        </p>
+                                        <button onclick="hidePopup()">Kapat</button>
+                                    </div>
+
+
+
+
 
                                     <div style="justify-content:center">
-                                        <a href="https://www.instagram.com/hexaops/" target="blank"><img width="40" class"logo-default" src="~/assets/images/demo/start-hub-3/instagrammm.png" alt="instagram"></a>
+                                        <a href="https://www.instagram.com/hexaops/" target="blank"><img width="40" class"logo-default" src="~/assets/images/demo/start--3/instagrammm.png" alt="instagram"></a>
 
                                         <a href="https://tr.linkedin.com/company/hexaops" target="blank"><img width="30" class"logo-default" src="~/assets/images/demo/start-hub-3/linkedlnnn.png" alt="linkedln"></a>
 
@@ -135,10 +236,10 @@
                         <div class="flex items-center justify-end w-80percent">
                             <div class="module-primary-nav flex">
                                 <div class="navbar-collapse inline-flex p-0 lqd-submenu-default-style link-14 mr-110 link-medium" id="main-header-collapse" aria-expanded="false" role="navigation">
-                                    <ul class="main-nav flex reset-ul inline-ul lqd-menu-counter-right lqd-menu-items-inline main-nav-hover-fade-inactive" data-submenu-options='{"toggleType": "fade", "handler": "mouse-in-out"}' data-localscroll="true" data-localscroll="true" data-localscroll-options='{"itemsSelector":"> li > a", "trackWindowScroll": true, "includeParentAsOffset": true}'>
+                                    <ul  class="main-nav flex reset-ul inline-ul lqd-menu-counter-right lqd-menu-items-inline main-nav-hover-fade-inactive" data-submenu-options='{"toggleType": "fade", "handler": "mouse-in-out"}' data-localscroll="true" data-localscroll="true" data-localscroll-options='{"itemsSelector":"> li > a", "trackWindowScroll": true, "includeParentAsOffset": true}'>
                                         <li class="menu-item-has-children">
-                                            <a class="text-blue-600" href="/">
-                                                <span>Hizmetler</span>
+                                            <a class="text-blue-600" href="#hizmetlerimiz">
+                                                <span style="font-size:30px">Hizmetler</span>
                                                 <span class="submenu-expander bg-transparent">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="21" height="32" viewbox="0 0 21 32" style="width: 1em; height: 1em;">
                                                         <path fill="currentColor" d="M10.5 18.375l7.938-7.938c.562-.562 1.562-.562 2.125 0s.562 1.563 0 2.126l-9 9c-.563.562-1.5.625-2.063.062L.437 12.562C.126 12.25 0 11.876 0 11.5s.125-.75.438-1.063c.562-.562 1.562-.562 2.124 0z"></path>
@@ -150,10 +251,10 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a class="text-blue-600" href="#payments">Yetkinlik<span class="link-badge text-badge">%</span></a>
+                                            <a style="font-size:30px" class="text-blue-600" href="#payments">Yetkinlik<span class="link-badge text-badge">%</span></a>
                                         </li>
                                         <li>
-                                            <a class="text-blue-600" href="/hakkinda">
+                                            <a style="font-size:30px" class="text-blue-600" href="/hakkinda">
                                                 Hakkımızda
                                                 <span class="link-icon inline-flex hide-if-empty right-icon">
                                                     <i class="lqd-icn-ess icon-ion-ios-arrow-down"></i>
@@ -161,16 +262,16 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a class="text-blue-600" href="#testimonials">Yorumlar</a>
+                                            <a style="font-size:30px" class="text-blue-600" href="#testimonials">Yorumlar</a>
                                         </li>
-                                        <li>
-                                            <a class="text-blue-600" href="#faq">FAQ</a>
+                                        <li >
+                                            <a style="font-size:30px" class="text-blue-600" href="#faq">FAQ</a>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
-                            <a href="#footermap" class="btn btn-solid btn-sm btn-hover-txt-switch-change btn-hover-txt-switch btn-hover-txt-switch-y btn-icon-right text-13 rounded-4 text-white bg-primary" data-localscroll="true" style="width: 200px">
-                                <span class="btn-txt" data-text="İletişim" data-split-text="true" data-split-options='{"type": "chars, words"}'> İletişim </span>
+                            <a href="#footermap" class="btn btn-solid btn-sm btn-hover-txt-switch-change btn-hover-txt-switch btn-hover-txt-switch-y btn-icon-right text-13 rounded-4 text-white bg-primary" data-localscroll="true" style="width: 300px; font-size:20px">
+                                <span  class="btn-txt" data-text="İletişim" data-split-text="true" data-split-options='{"type": "chars, words"}'> İletişim </span>
                                 <span class="btn-icon text-1/5em -rotate-45" style="border-left: 50px">
                                     <i aria-hidden="true" class="lqd-icn-ess icon-ion-ios-arrow-round-forward"></i>
                                 </span>
@@ -231,8 +332,8 @@
                     <div class="mobile-navbar-collapse navbar-collapse collapse w-full" id="lqd-mobile-sec-nav" aria-expanded="false" role="navigation">
                         <ul id="mobile-primary-nav" class="reset-ul lqd-mobile-main-nav main-nav nav" data-localscroll="true" data-localscroll-options='{"itemsSelector":"> li > a", "trackWindowScroll": true, "includeParentAsOffset": true}'>
                             <li class="menu-item-has-children">
-                                <a href="#features">
-                                    <span>Hizmetler</span>
+                                <a >
+                                    <span >Hizmetler</span>
                                     <span class="submenu-expander absolute"></span>
                                 </a>
                             </li>
@@ -269,9 +370,9 @@
                                     <div class="w-full flex flex-col mr-60 sm:mr-0">
                                         <div class="ld-fancy-heading relative animation-element">
                                             <h2 class="text-46 leading-1em mb-60 tracking-0 text-white ld-fh-element relative lqd-highlight-custom lqd-highlight-custom-2" data-inview="true" data-transition-delay="true" data-delay-options=' {"elements": ".lqd-highlight-inner", "delayType": "transition"}'>
-                                                <span>Hub'a katılın ve özel bir</span>
+                                                <span>Hexaops: Her Şey </span>
                                                 <mark class="lqd-highlight">
-                                                    <span class="lqd-highlight-txt">kazanın.</span>
+                                                    <span class="lqd-highlight-txt">Mümkün</span>
                                                     <span class="left-0 -bottom-20 lqd-highlight-inner">
                                                         <svg class="lqd-highlight-pen" width="51" height="51" viewbox="0 0 51 51" xmlns="http://www.w3.org/2000/svg">
                                                             <path d="M36.204 1.044C32.02 2.814 5.66 31.155 4.514 35.116c-.632 2.182-1.75 5.516-2.483 7.409-3.024 7.805-1.54 9.29 6.265 6.265 1.893-.733 5.227-1.848 7.41-2.477 3.834-1.105 4.473-1.647 19.175-16.27 0 0 10.63-10.546 15.21-15.125C53 8.997 42.021-1.418 36.203 1.044Zm7.263 5.369c3.56 3.28 4.114 4.749 2.643 6.995l-1.115 1.7-4.586-4.543-4.585-4.544 1.42-1.157C39.311 3.18 40.2 3.4 43.467 6.413ZM37.863 13.3l4.266 4.304-11.547 11.561-11.547 11.561-4.48-4.446-4.481-4.447 11.404-11.418c6.273-6.28 11.566-11.42 11.762-11.42.197 0 2.277 1.938 4.623 4.305ZM12.016 39.03l3.54 3.584-3.562 1.098-5.316 1.641c-1.665.516-1.727.455-1.211-1.21l1.614-5.226c1.289-4.177.685-4.191 4.935.113Z"></path>
@@ -296,23 +397,23 @@
                                             <div class="lqd-imggrp-single flex flex-grow-1 relative w-33percent sm:justify-start">
                                                 <div class="lqd-imggrp-img-container inline-flex relative items-center justify-center">
                                                     <figure class="w-full relative animation-element">
-                                                        <img width="101" height="30" src="./assets/images/demo/start-hub-3/client-spotify-2.svg" alt="footer clients">
+                                                        <img width="101" height="30" src="./assets/images/demo/start-hub-3/paxon-logo.png" alt="footer clients">
                                                     </figure>
                                                 </div>
                                             </div>
                                             <div class="lqd-imggrp-single flex flex-grow-1 relative w-33percent sm:justify-center">
                                                 <div class="lqd-imggrp-img-container inline-flex relative items-center justify-center">
                                                     <figure class="w-full relative animation-element">
-                                                        <img width="60" height="21" src="./assets/images/demo/start-hub-3/client-nike-3.svg" alt="footer clients">
+                                                        <img width="60" height="21" src="./assets/images/demo/start-hub-3/hgg_logo.jpg" alt="footer clients">
                                                     </figure>
                                                 </div>
                                             </div>
-                                            <div class="lqd-imggrp-single flex flex-grow-1 relative w-33percent sm:justify-end">
+                                             <div class="lqd-imggrp-single flex flex-grow-1 relative w-33percent sm:justify-end">
                                                 <div class="lqd-imggrp-img-container inline-flex relative items-center justify-center">
                                                     <figure class="w-full relative animation-element">
-                                                        <img width="69" height="16" src="./assets/images/demo/start-hub-3/client-amd-logo-3.svg" alt="footer clients">
+                                                        <img width="69" height="16" src="./assets/images/demo/start-hub-3/metin-is-logo.png" alt="footer clients">
                                                     </figure>
-                                                </div>
+                                                </div> 
                                             </div>
                                         </div>
                                     </div>
@@ -425,24 +526,24 @@
                                     </div>
                                     <div class="link-15 link-white-80 lqd-fancy-menu lqd-custom-menu relative lqd-menu-td-none">
                                         <ul class="reset-ul">
-                                            <li class="mb-10">
+                                            @* <li class="mb-10">
                                                 <a href="#">
                                                     <span class="link-icon inline-flex hide-if-empty left-icon icon-next-to-label"></span>
                                                     <span>Mağaza İçi Alışveriş</span>
                                                 </a>
-                                            </li>
+                                            </li> *@
                                             <li class="mb-10">
                                                 <a href="#">
                                                     <span class="link-icon inline-flex hide-if-empty left-icon icon-next-to-label"></span>
                                                     <span>Markalar</span>
                                                 </a>
                                             </li>
-                                            <li class="mb-10">
+                                           @*  <li class="mb-10">
                                                 <a href="#">
                                                     <span class="link-icon inline-flex hide-if-empty left-icon icon-next-to-label"></span>
                                                     <span>Hediye Kartları</span>
                                                 </a>
-                                            </li>
+                                            </li> *@
                                             <li>
                                                 <a href="#">
                                                     <span class="link-icon inline-flex hide-if-empty left-icon icon-next-to-label"></span>
@@ -460,7 +561,7 @@
                                         <h6 class="text-9 uppercase tracking-1 ld-fh-element mb-0/5em inline-block relative text-slate-200">BİZİ DOĞRUDAN ARAYIN.</h6>
                                     </div>
                                     <div class="ld-fancy-heading relative">
-                                        <p class="text-18 font-medium mb-1/75em text-white ld-fh-element relative"> <a style="color:rgba(255,255,255,.8)" href="tel:+90 507 675 8399">+90 507 675 8399</a>  </p>
+                                        <p class="text-18 font-medium mb-1/75em text-white ld-fh-element relative"> <a id="whatsapp-link" style="color:rgba(255,255,255,.8)" href="https://wa.me/+905076758399">+90 507 675 8399</a>  </p>
                                     </div>
                                     <div class="ld-fancy-heading relative">
                                         <h6 class="text-9 uppercase tracking-1 ld-fh-element mb-0/5em inline-block relative text-slate-200">BİZİ DOĞRUDAN ARAYIN</h6>
@@ -540,8 +641,8 @@
                                         <a href="https://github.com/hexaops-git" target="blank">
                                             <img style="width:23000px;" class="logo-default" src="~/assets/images/demo/start-hub-3/githubbb.png" alt="github" >
                                         </a>
-                                       
-                                        
+
+                              
                                     </div>
                                 </div>
                             </section>
@@ -611,6 +712,10 @@
     <script src="~/assets/js/liquid-gdpr.min.js"></script>
     <script src="~/assets/js/theme.min.js"></script>
     <script src="~/assets/js/liquid-ajax-contact-form.min.js"></script>
+
+    
+
+    
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
