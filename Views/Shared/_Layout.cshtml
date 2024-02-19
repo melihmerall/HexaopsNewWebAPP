@@ -26,8 +26,33 @@
     <link rel="shortcut icon" type="image/x-icon" href="~/assets/images/demo/start-hub-3/favicon.png">
     <title>HEXAOPS TECHNOLOGY</title>
 
-    
 
+    <style>
+        .logo-default {
+            transition: transform 0.5s ease; /* Geçiş efektini tanımlar */
+        }
+
+        
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var logos = document.querySelectorAll('.logo-default');
+
+            logos.forEach(function (logo) {
+                logo.addEventListener('mouseover', function () {
+                    var randomX = Math.floor(Math.random() * window.innerWidth); // Rasgele X pozisyonu hesaplanır
+                    var randomY = Math.floor(Math.random() * window.innerHeight); // Rasgele Y pozisyonu hesaplanır
+
+                    this.style.transform = 'translate(' + randomX + 'px, ' + randomY + 'px)'; // İkonu rasgele pozisyona taşır
+                });
+
+                logo.addEventListener('mouseout', function () {
+                    this.style.transform = 'translate(0px, 0px)'; // İkonu orijinal pozisyona geri taşır
+                });
+            });
+        });
+    </script>
 
     <script>
         function showPopup() {
@@ -39,7 +64,10 @@
             var popup = document.getElementById('popup-content');
             popup.style.display = 'none';
         }
+
     </script>
+
+
 
     <style>
         #popup-content {
@@ -78,19 +106,55 @@
                 #popup-content button:hover {
                     background-color: #0056b3;
                 }
+    </style>
+
+    <style>
+        @@media (max-width: 768px) { /* Mobil cihazlarda */
+
+            .different-style {
+                width: 100%;
+                /*  justify-content:between */
+            }
+
+            .footer-p {
+                float: left;
+            }
+        }
+
+        @@media screen and (max-width: 768px) {
+            .mobile-hidden {
+                display: none;
+            }
+        }
+
+        @@media screen and (max-width: 768px) {
+            .mobile-show {
+                display: inline-block !important;
+            }
+        }
 
     </style>
-    
-    
+
+
+
+
+
+
+
+
+
+
 </head>
-<body data-lqd-cc="t-nav-breakpoint="1199" data-mobile-nav-style="minimal" data-mobile-nav-scheme="gray" data-mobile-nav-trigger-alignment="right" data-mobile-header-scheme="light" data-mobile-logo-alignment="default" data-overlay-onmobile="false" data-disable-animations-onmobile="true">
+<body data-lqd-cc="t-nav-breakpoint=" 1199" data-mobile-nav-style="minimal" data-mobile-nav-scheme="gray" data-mobile-nav-trigger-alignment="right" data-mobile-header-scheme="light" data-mobile-logo-alignment="default" data-overlay-onmobile="false" data-disable-animations-onmobile="true">
+
+
     <div id="wrap" class="bg-white">
         <div class="lqd-sticky-placeholder hidden"></div>
         <header id="site-header" class="--header" data-sticky-header="true" data-sticky-values-measured="false">
             <section class="lqd-section lqd-hide-onstuck bg-no-repeat bg-top-right bg-darkpurple transition-all pt-10 md:hidden" style="background-image: url('./assets/images/demo/start-hub-3/shape-header-ball1.png');">
                 <div class="flex items-center justify-center">
                     <div class="rounded-4 mr-20 ld-fancy-heading relative bg-pink-100">
-                       @*  <p class="ld-fh-element relative text-black text-11 px-10 font-medium m-0"></p> *@
+                        <p class="ld-fh-element relative text-black text-11 px-10 font-medium m-0">Yeterince mühendislik, büyü gibidir. - Henry Petroski</p>
                     </div>
                     <div class="ld-fancy-heading relative">
                         <p class="ld-fh-element relative text-13 font-medium leading-1em mr-10 mb-0 text-white-60"></p>
@@ -99,6 +163,8 @@
                         <span class="btn-txt" data-text="Join Hub"></span>
                     </a>
                 </div>
+
+            
                 <div class="bg-white mt-10 border-bottom border-black-10 rounded-25 rounded-bottom-0 transition-all">
                     <div class="w-full flex justify-between items-center">
                         <div class="w-50percent flex items-center justify-start p-10">
@@ -173,46 +239,45 @@
                                         <a href="https://github.com/hexaops-git" target="blank"><img width="40" class"logo-default" src="~/assets/images/demo/start-hub-3/githubbb.png" alt="github"></a>
 
                                     </div>
-                                   
 
 
 
-                                    
-                                   
-                                        
-                                       
-                                     
 
-                                   
-                                            
-                                    
 
-                                   
-                                   
+
+
+
+
+
+
+
+
+
+
+
                                 </div>
                                 <div class="ld-dropdown-menu flex relative mr-30 link-15 link-black" role="menubar">
                                     <span class="ld-module-trigger text-black" role="button" data-ld-toggle="true" data-bs-toggle="collapse" data-bs-target="#dropdown-language" aria-controls="dropdown-language" aria-expanded="false" data-toggle-options='{ "type":  "hoverFade"}'>
-                                       <img width="40" class"logo-default" src="~/assets/images/demo/start-hub-3/ingilizce.png" alt="ingilizce">                                       
-                                       <span class="text-13 ld-module-trigger-txt">🇺🇸 English <i class="lqd-icn-ess icon-ion-ios-arrow-down"></i></span>
+                                        <img width="40" class"logo-default" src="~/assets/images/demo/start-hub-3/ingilizce.png" alt="ingilizce">
+                                        <span class="text-13 ld-module-trigger-txt">🇺🇸 English <i class="lqd-icn-ess icon-ion-ios-arrow-down"></i></span>
                                     </span>
                                     <div class="link-16 ld-module-dropdown left collapse absolute" id="dropdown-language" aria-expanded="false" role="menuitem">
                                         <div class="ld-dropdown-menu-content">
-                                            
-                                     
-                                                <ul>
-                                              
-                                                    <li>
-                                                    <img width="30" 
-                                                        
-                                                        src="~/assets/images/demo/start-hub-3/almanca.png" alt="almanca">
-                                                        <a href="#" target="_blank">Almanca</a>
-                                                        </li>
-                                                  
-                                                    
-                                                   <li>
+
+
+                                            <ul>
+
+                                                <li>
+                                                    <img width="30"
+                                                         src="~/assets/images/demo/start-hub-3/almanca.png" alt="almanca">
+                                                    <a href="#" target="_blank">Almanca</a>
+                                                </li>
+
+
+                                                <li>
                                                     <img width="30" class="logo-default" src="~/assets/images/demo/start-hub-3/Fransizca.png" alt="fransızca">
-                                                        <a href="#" target="_blank">Fransızca</a>
-                                                    </li>
+                                                    <a href="#" target="_blank">Fransızca</a>
+                                                </li>
 
                                             </ul>
                                         </div>
@@ -229,14 +294,14 @@
                         <div class="pl-15 py-25 module-logo flex navbar-brand-plain w-20percent">
                             <a class="navbar-brand flex p-0 relative" href="/" rel="home">
                                 <span class="navbar-brand-inner post-rel">
-                                    <img width="171" class="logo-default" src="~/assets/images/demo/start-hub-3/hexaops-llc-logo.png" alt="hexaops">
+                                    <img width="171" src="~/assets/images/demo/start-hub-3/hexaops-llc-logo.png" alt="hexaops">   @* class="logo-default" *@
                                 </span>
                             </a>
                         </div>
                         <div class="flex items-center justify-end w-80percent">
                             <div class="module-primary-nav flex">
                                 <div class="navbar-collapse inline-flex p-0 lqd-submenu-default-style link-14 mr-110 link-medium" id="main-header-collapse" aria-expanded="false" role="navigation">
-                                    <ul  class="main-nav flex reset-ul inline-ul lqd-menu-counter-right lqd-menu-items-inline main-nav-hover-fade-inactive" data-submenu-options='{"toggleType": "fade", "handler": "mouse-in-out"}' data-localscroll="true" data-localscroll="true" data-localscroll-options='{"itemsSelector":"> li > a", "trackWindowScroll": true, "includeParentAsOffset": true}'>
+                                    <ul class="main-nav flex reset-ul inline-ul lqd-menu-counter-right lqd-menu-items-inline main-nav-hover-fade-inactive" data-submenu-options='{"toggleType": "fade", "handler": "mouse-in-out"}' data-localscroll="true" data-localscroll="true" data-localscroll-options='{"itemsSelector":"> li > a", "trackWindowScroll": true, "includeParentAsOffset": true}'>
                                         <li class="menu-item-has-children">
                                             <a class="text-blue-600" href="#hizmetlerimiz">
                                                 <span style="font-size:30px">Hizmetler</span>
@@ -251,7 +316,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a style="font-size:30px" class="text-blue-600" href="#payments">Yetkinlik<span class="link-badge text-badge">%</span></a>
+                                            <a style="font-size:30px" class="text-blue-600" href="/#yetkinlik">Yetkinlik<span class="link-badge text-badge">%</span></a>
                                         </li>
                                         <li>
                                             <a style="font-size:30px" class="text-blue-600" href="/hakkinda">
@@ -264,18 +329,18 @@
                                         <li>
                                             <a style="font-size:30px" class="text-blue-600" href="#testimonials">Yorumlar</a>
                                         </li>
-                                        <li >
-                                            <a style="font-size:30px" class="text-blue-600" href="#faq">FAQ</a>
+                                        <li>
+                                            <a style="font-size:30px" class="text-blue-600" href="#sss">FAQ</a>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                             <a href="#footermap" class="btn btn-solid btn-sm btn-hover-txt-switch-change btn-hover-txt-switch btn-hover-txt-switch-y btn-icon-right text-13 rounded-4 text-white bg-primary" data-localscroll="true" style="width: 300px; font-size:20px">
-                                <span  class="btn-txt" data-text="İletişim" data-split-text="true" data-split-options='{"type": "chars, words"}'> İletişim </span>
+                                <span class="btn-txt" data-text="İletişim" data-split-text="true" data-split-options='{"type": "chars, words"}'> İletişim </span>
                                 <span class="btn-icon text-1/5em -rotate-45" style="border-left: 50px">
                                     <i aria-hidden="true" class="lqd-icn-ess icon-ion-ios-arrow-round-forward"></i>
                                 </span>
-                            </a> 
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -332,13 +397,13 @@
                     <div class="mobile-navbar-collapse navbar-collapse collapse w-full" id="lqd-mobile-sec-nav" aria-expanded="false" role="navigation">
                         <ul id="mobile-primary-nav" class="reset-ul lqd-mobile-main-nav main-nav nav" data-localscroll="true" data-localscroll-options='{"itemsSelector":"> li > a", "trackWindowScroll": true, "includeParentAsOffset": true}'>
                             <li class="menu-item-has-children">
-                                <a >
-                                    <span >Hizmetler</span>
+                                <a>
+                                    <span>Hizmetler</span>
                                     <span class="submenu-expander absolute"></span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#payments">Yetkinlik<span class="link-badge text-badge">%</span></a>
+                                <a href="#yetkinlik">Yetkinlik<span class="link-badge text-badge">%</span></a>
                             </li>
                             <li>
                                 <a href="/hakkinda">
@@ -352,7 +417,7 @@
                                 <a href="#testimonials">Yorumlar</a>
                             </li>
                             <li>
-                                <a href="#faq">FAQ</a>
+                                <a href="#faq"></a>
                             </li>
                         </ul>
                     </div>
@@ -384,8 +449,8 @@
                                                 </mark>
                                             </h2>
                                         </div>
-                                        <a href="#contact-modal" class="btn btn-solid btn-hover-txt-liquid-y btn-custom-size btn-icon-right btn-hover-swp bg-white text-accent rounded-6 text-13 w-240 h-55 animation-element" data-lity="#contact-modal">
-                                            <span class="btn-txt" data-text="Join the Community" data-split-text="true" data-split-options='{"type":  "chars, words"}'>Topluluğa Katılın</span>
+                                        <a href="#hizmetlerimiz" class="btn btn-solid btn-hover-txt-liquid-y btn-custom-size btn-icon-right btn-hover-swp bg-white text-accent rounded-6 text-13 w-240 h-55 animation-element" data-lity="#contact-modal">
+                                            <span class="btn-txt" data-text="Join the Community" data-split-text="true" data-split-options='{"type":  "chars, words"}'>Yetkinlik</span>
                                             <span class="btn-icon tex-18">
                                                 <i aria-hidden="true" class="lqd-icn-ess icon-md-arrow-forward"></i>
                                             </span>
@@ -408,12 +473,12 @@
                                                     </figure>
                                                 </div>
                                             </div>
-                                             <div class="lqd-imggrp-single flex flex-grow-1 relative w-33percent sm:justify-end">
+                                            <div class="lqd-imggrp-single flex flex-grow-1 relative w-33percent sm:justify-end">
                                                 <div class="lqd-imggrp-img-container inline-flex relative items-center justify-center">
                                                     <figure class="w-full relative animation-element">
                                                         <img width="69" height="16" src="./assets/images/demo/start-hub-3/metin-is-logo.png" alt="footer clients">
                                                     </figure>
-                                                </div> 
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -447,7 +512,7 @@
                                                         <i aria-hidden="true" class="text-white lqd-icn-ess icon-ion-ios-checkmark"></i>
                                                     </div>
                                                 </div>
-                                                <h3 class="lqd-iconbox-heading text-17 font-medium leading-30 tracking-0 m-0 text-white">Güvenli çevrimiçi bitcoin ödemeleri. </h3>
+                                                <h3 class="lqd-iconbox-heading text-17 font-medium leading-30 tracking-0 m-0 text-white">Bir kereden çok şey olur.</h3>
                                             </div>
                                         </div>
                                         <div data-custom-animations="true" data-ca-options='{"animationTarget": ".iconbox", "startDelay" : 700, "ease": "power4.out", "initValues": {"opacity" : 0} , "animations": {"opacity" : 1}}'>
@@ -480,10 +545,10 @@
                                     </div>
                                 </div>
                             </section>
-                            <section class="lqd-section footer-menu flex flex-wrap items-start pt-50" data-custom-animations="true" data-ca-options='{"animationTarget": ".animation-element", "ease": "power4.out", "initValues": {"y": "35px", "opacity" : 0} , "animations": {"y": "0px", "opacity" : 1}}'>
-                                <div class="w-25percent flex flex-col p-10 lg:w-33percent sm:w-50percent animation-element">
+                            <section class="lqd-section footer-menu flex flex-wrap items-start pt-50 " data-custom-animations="true" data-ca-options='{"animationTarget": ".animation-element", "ease": "power4.out", "initValues": {"y": "35px", "opacity" : 0} , "animations": {"y": "0px", "opacity" : 1}}'>
+                                <div class="w-25percent flex flex-col p-10 lg:w-33percent sm:w-50percent animation-element" s">
                                     <div class="ld-fancy-heading relative">
-                                        <h5 class="text-10 uppercase tracking-1 text-white-50 mb-4em ld-fh-element relative">ŞİRKETİMİZ</h5>
+                                        <h5 class="text-10 uppercase tracking-1 text-white-50 mb-4em ld-fh-element relative" style="font-size:20px; margin-bottom:25px">ŞİRKETİMİZ</h5>
                                     </div>
                                     <div class="link-15 link-white-80 lqd-fancy-menu lqd-custom-menu relative lqd-menu-td-none">
                                         <ul class="reset-ul" id="3e8baa6">
@@ -520,51 +585,51 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="w-20percent flex flex-col p-10 lg:w-33percent sm:w-50percent animation-element">
-                                    <div class="ld-fancy-heading relative">
-                                        <h5 class="text-10 uppercase tracking-1 text-white-50 mb-4em ld-fh-element relative">DESTEK</h5>
-                                    </div>
-                                    <div class="link-15 link-white-80 lqd-fancy-menu lqd-custom-menu relative lqd-menu-td-none">
-                                        <ul class="reset-ul">
-                                            @* <li class="mb-10">
-                                                <a href="#">
-                                                    <span class="link-icon inline-flex hide-if-empty left-icon icon-next-to-label"></span>
-                                                    <span>Mağaza İçi Alışveriş</span>
-                                                </a>
-                                            </li> *@
-                                            <li class="mb-10">
-                                                <a href="#">
-                                                    <span class="link-icon inline-flex hide-if-empty left-icon icon-next-to-label"></span>
-                                                    <span>Markalar</span>
-                                                </a>
-                                            </li>
-                                           @*  <li class="mb-10">
-                                                <a href="#">
-                                                    <span class="link-icon inline-flex hide-if-empty left-icon icon-next-to-label"></span>
-                                                    <span>Hediye Kartları</span>
-                                                </a>
-                                            </li> *@
-                                            <li>
-                                                <a href="#">
-                                                    <span class="link-icon inline-flex hide-if-empty left-icon icon-next-to-label"></span>
-                                                    <span>Kariyer</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                @* <div class="w-20percent flex flex-col p-10 lg:w-33percent sm:w-50percent animation-element">
+                                <div class="ld-fancy-heading relative">
+                                <h5 class="text-10 uppercase tracking-1 text-white-50 mb-4em ld-fh-element relative">DESTEK</h5>
                                 </div>
+                                <div class="link-15 link-white-80 lqd-fancy-menu lqd-custom-menu relative lqd-menu-td-none">
+                                <ul class="reset-ul">
+                                <li class="mb-10">
+                                <a href="#">
+                                <span class="link-icon inline-flex hide-if-empty left-icon icon-next-to-label"></span>
+                                <span>Mağaza İçi Alışveriş</span>
+                                </a>
+                                </li>
+                                <li class="mb-10">
+                                <a href="#">
+                                <span class="link-icon inline-flex hide-if-empty left-icon icon-next-to-label"></span>
+                                <span>Markalar</span>
+                                </a>
+                                </li>
+                                <li class="mb-10">
+                                <a href="#">
+                                <span class="link-icon inline-flex hide-if-empty left-icon icon-next-to-label"></span>
+                                <span>Hediye Kartları</span>
+                                </a>
+                                </li>
+                                <li>
+                                <a href="#">
+                                <span class="link-icon inline-flex hide-if-empty left-icon icon-next-to-label"></span>
+                                <span>Kariyer</span>
+                                </a>
+                                </li>
+                                </ul>
+                                </div>
+                                </div> *@
                                 <div class="w-20percent flex flex-col p-10 lg:w-33percent sm:w-full module-third animation-element">
                                     <div class="ld-fancy-heading relative">
-                                        <h5 class="text-10 uppercase tracking-1 text-white-50 mb-4em ld-fh-element relative">YARDIMA İHTİYACINIZ VAR MI?</h5>
+                                        <h5 class="text-10 uppercase tracking-1 text-white-50 mb-4em ld-fh-element relative" style="font-size:15px; margin-bottom:20px">YARDIMA İHTİYACINIZ VAR MI?</h5>
                                     </div>
                                     <div class="ld-fancy-heading relative">
-                                        <h6 class="text-9 uppercase tracking-1 ld-fh-element mb-0/5em inline-block relative text-slate-200">BİZİ DOĞRUDAN ARAYIN.</h6>
+                                        <h6 class="text-9 uppercase tracking-1 ld-fh-element mb-0/5em inline-block relative text-slate-200" style="font-size:10px">BİZİ DOĞRUDAN ARAYIN.</h6>
                                     </div>
                                     <div class="ld-fancy-heading relative">
                                         <p class="text-18 font-medium mb-1/75em text-white ld-fh-element relative"> <a id="whatsapp-link" style="color:rgba(255,255,255,.8)" href="https://wa.me/+905076758399">+90 507 675 8399</a>  </p>
                                     </div>
                                     <div class="ld-fancy-heading relative">
-                                        <h6 class="text-9 uppercase tracking-1 ld-fh-element mb-0/5em inline-block relative text-slate-200">BİZİ DOĞRUDAN ARAYIN</h6>
+                                        <h6 class="text-9 uppercase tracking-1 ld-fh-element mb-0/5em inline-block relative text-slate-200" style="font-size:10px">BİZE MAİL GÖNDERİN</h6>
                                     </div>
                                     <div class="ld-fancy-heading relative">
                                         <p class="text-18 font-medium mb-1/75em ld-fh-element relative">  <a style="color:rgba(255,255,255,.8)" href="mailto:info@hexaops.net">info@hexaops.net</a> </p>
@@ -572,7 +637,7 @@
                                 </div>
                                 <div class="w-35percent flex flex-col p-10 lg:w-full module-last animation-element">
                                     <div class="ld-fancy-heading relative">
-                                        <h5 class="text-10 uppercase tracking-1 text-white-50 mb-4em ld-fh-element relative" id="footermap"> İLETİŞİMDE KALIN  </h5>
+                                        <h5 class="text-10 uppercase tracking-1 text-white-50 mb-4em ld-fh-element relative" id="footermap" style="font-size:15px; margin-bottom:20px"> İLETİŞİMDE KALIN  </h5>
                                     </div>
                                     <div class="ld-sf relative ld-sf--input-solid ld-sf--button-solid ld-sf--button-eql ld-sf--size-sm ld-sf--circle ld-sf--border-none ld-sf--button-show ld-sf--button-inside button-shrinked">
                                         <form class="relative" method="post" action="#">
@@ -585,7 +650,7 @@
                                                 </span>
                                                 <span class="ld-sf-spinner rounded-full absolute overflow-hidden">
                                                     <span class="block lqd-overlay flex rounded-full">Sending </span>
-                                                    
+
                                                 </span>
                                             </button>
                                         </form>
@@ -598,50 +663,54 @@
                                     <div class="mr-35 lqd-imggrp-single block relative">
                                         <div class="lqd-imggrp-img-container inline-flex relative items-center justify-center">
                                             <figure class="w-full relative">
-                                                
                                             </figure>
                                         </div>
                                     </div>
                                     <div class="lqd-fancy-menu lqd-custom-menu relative lqd-menu-td-none">
                                         <ul class="reset-ul inline-ul">
                                             <li>
-                                             
+
                                                 <a href="" style="color:rgba(255,255,255,.8)">
                                                     <img src="./assets/images/demo/start-hub-3/hexaopslogo.png" alt="hexaops foother logo" style="max-width: 85%; height: auto; margin-right: 10px; /* justify-content:center; align-items:center */">
-                                                   @*  <p1 style="font-size: 18px;padding-left: 20px;">Türkçe/TR</p1> *@
+                                                    @*  <p1 style="font-size: 18px;padding-left: 20px;">Türkçe/TR</p1> *@
                                                 </a>
-                                           
+
                                             </li>
 
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="w-80percent flex flex-wrap p-10 lg:w-full animation-element" >
-                                    <div class="ld-fancy-heading relative text-center w-80percent lg:w-full lg:text-start module-copyright">
-                                        <p class="text-14 leading-1em font-normal text-white-70 ld-fh-element mb-0/5em inline-block relative" style="max-width:100%; margin-bottom:70px ; max-width: 100%;  font-size: 12px;">©2020-2024 | Bu sitenin tüm hakları <a href="/" style="color:rgba(255,255,255,.7) ; ">HEXAOPS</a> tarafından saklıdır</p>
+                                <div class="w-80percent flex flex-wrap p-10 lg:w-full animation-element">
+                                    <div class="ld-fancy-heading relative text-center w-80percent lg:w-full lg:text-start module-copyright mobile-hidden">
+                                        <p class="text-14 leading-1em font-normal text-white-70 ld-fh-element mb-0/5em inline-block relative different-style" style="max-width:100%; margin-bottom:70px ; max-width: 100%;  font-size: 12px;">©2020-2024 | Bu sitenin tüm hakları <a href="/" style="color:rgba(255,255,255,.7) ; ">HEXAOPS</a> tarafından saklıdır</p>
                                     </div>
-                                    <div class="flex  justify-end module-social w-20percent lg:justify-start lg:order-first" >
+                                    <div style="display:none;" class="ld-fancy-heading relative text-center w-80percent lg:w-full lg:text-start module-copyright mobile-show">
+                                        <p class="text-14 leading-1em font-normal text-white-70 ld-fh-element mb-0/5em inline-block relative different-style" style="max-width:100%; max-width: 100%;  font-size: 12px; text-align:center!important;">©2020-2024</p>
+                                        <p class="text-14 leading-1em font-normal text-white-70 ld-fh-element mb-0/5em inline-block relative different-style" style="max-width:100%; margin-bottom:70px ; max-width: 100%;  font-size: 12px;text-align:center!important;">Bu sitenin tüm hakları <a href="/" style="color:rgba(255,255,255,.7) ; ">HEXAOPS</a> tarafından saklıdır</p>
+                                    </div>
+                                    <div class="flex  justify-end module-social w-20percent lg:justify-start lg:order-first">
 
 
-                                        <a href="https://www.instagram.com/hexaops/" target="blank" >
+                                        <a href="https://www.instagram.com/hexaops/" target="blank">
                                             <img style="width:25000px;" class="logo-default" src="~/assets/images/demo/start-hub-3/instagrammm.png" alt="instagram">
                                         </a>
 
 
-                                        <img style="width:20000px;" class="logo-default" src="~/assets/images/demo/start-hub-3/linkedlnnn.png" alt="linkedln" >
+                                        <a href="https://tr.linkedin.com/company/hexaops" target="blank">
+                                            <img style="width:20000px;" class="logo-default" src="~/assets/images/demo/start-hub-3/linkedlnnn.png" alt="linkedln" >
 
-                                           </a>      
-                                       
+                                        </a>
 
-                                        <a href="https://www.youtube.com/channel/UChml0Cztq6JlRN5OmvzS9hg" target="blank" >
+
+                                        <a href="https://www.youtube.com/channel/UChml0Cztq6JlRN5OmvzS9hg" target="blank">
                                             <img style="width:28000px;" class="logo-default" src="~/assets/images/demo/start-hub-3/youtubeee.png" alt="youtube">
                                         </a>
 
                                         <a href="https://github.com/hexaops-git" target="blank">
-                                            <img style="width:23000px;" class="logo-default" src="~/assets/images/demo/start-hub-3/githubbb.png" alt="github" >
+                                            <img style="width:23000px;" class="logo-default" src="~/assets/images/demo/start-hub-3/githubbb.png" alt="github">
                                         </a>
 
-                              
+
                                     </div>
                                 </div>
                             </section>
@@ -712,9 +781,11 @@
     <script src="~/assets/js/theme.min.js"></script>
     <script src="~/assets/js/liquid-ajax-contact-form.min.js"></script>
 
-    
 
-    
+
+
+
+
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
