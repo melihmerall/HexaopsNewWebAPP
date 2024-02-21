@@ -1,7 +1,16 @@
+using HexaopsNewWebAPP.Database.Context;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+
+builder.Services.AddDbContext<SqlServerContext>(options =>
+{
+    options.UseSqlServer("Server=94.199.202.243;Database=hexa8262_;User Id=hexa12;Password=62Aq4dk_8;TrustServerCertificate=true;");
+});
 
 var app = builder.Build();
 

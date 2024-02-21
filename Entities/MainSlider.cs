@@ -1,6 +1,6 @@
 ﻿namespace HexaopsNewWebAPP.Entites
 {
-	public class MainSlider
+	public class MainSlider: BaseEntity
 	{
 		public string? ImagePath { get; set; }
 		public string? Title { get; set; }

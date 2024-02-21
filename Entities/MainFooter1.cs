@@ -11,20 +11,19 @@ namespace HexaopsNewWebAPP.Entities
 		public string Logo2 { get; set; }
 		public string? Logo3 { get; set; }
 
-		public string? Slogan1 { get; set; }
-		public string? Slogan2 { get;set; }
-		public string? Slogan3 { get;set; }
-		public string? Slogan4 { get; set; }
-		public string? Slogan5 { get; set; }
+        public string? Slogan1 { get; set; }
+        public string? Slogan2 { get; set; }
+        public string? Slogan3 { get; set; }
+        public string? Slogan4 { get; set; }
+        public string? Slogan5 { get; set; }
 
 
-		public string? CompanyTitle { get; set; }
+        public string? CompanyTitle { get; set; }
 		public string? CompanyDescripiton1 { get; set; }
 		public string? CompanyDescription2 { get; set; }
 		public string? CompanyDescription3 { get;  set; }
 		public string? CompanyDescription4 { get;set; }
 		public string? CompanyDescription5 { get;set; }
-
 
 		public string? HelpTitle { get; set; }
 		public string? HelpSmallTitle1 { get; set; }

@@ -2,7 +2,7 @@
 
 namespace HexaopsNewWebAPP.Entities
 {
-	public class MainYorum: BaseEntity
+	public class MainComment: BaseEntity
 	{
 		public string? YorumImage1 { get; set; }
 		public string? YorumTitle1 { get; set; }
