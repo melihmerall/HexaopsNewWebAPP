@@ -4,6 +4,7 @@ using HexaopsNewWebAPP.Database.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HexaopsNewWebAPP.Migrations
 {
     [DbContext(typeof(SqlServerContext))]
-    partial class SqlServerContextModelSnapshot : ModelSnapshot
+    [Migration("20240223171508_MainFeature")]
+    partial class MainFeature
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -120,34 +123,6 @@ namespace HexaopsNewWebAPP.Migrations
                     b.HasIndex("MainServiceId");
 
                     b.ToTable("MainServiceAssocs");
-                });
-
-            modelBuilder.Entity("HexaopsNewWebAPP.Entities.MainSolutions", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("CreatedDated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("SolutionsButtonUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SolutionsDescription")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SolutionsImagePath")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SolutionsTitle")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("MainSolutions");
                 });
 
             modelBuilder.Entity("HexaopsNewWebAPP.Entities.MainFeatureAssoc", b =>

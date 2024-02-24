@@ -10,6 +10,9 @@ namespace HexaopsNewWebAPP.Database.Context
         }
         public DbSet<MainService> MainServices { get; set; }
         public DbSet<MainServiceAssoc> MainServiceAssocs { get; set; }
+        public DbSet<MainFeatures> MainFeatures { get; set; }
+        public DbSet<MainFeatureAssoc> MainFeatureAssocs { get; set;}
+        public DbSet<MainSolutions> MainSolutions { get; set; }
 
     }
 }
