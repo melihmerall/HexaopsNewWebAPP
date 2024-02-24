@@ -2,10 +2,10 @@
 
 namespace HexaopsNewWebAPP.Entities
 {
-	public class MainFooter1: BaseEntity
+	public class MainFooter: BaseEntity
 	{
-		public string? Title1 { get; set; }
-		public string? Button1 { get; set; }
+		public string? Title { get; set; }
+		public string? ButtonUrl { get; set; }
 
 		public string? Logo1 { get; set; }
 		public string Logo2 { get; set; }
@@ -28,10 +28,14 @@ namespace HexaopsNewWebAPP.Entities
 		public string? HelpTitle { get; set; }
 		public string? HelpSmallTitle1 { get; set; }
 		public string? HelpDescription1 { get; set; }
+		public string? HelpUrl1 { get; set; }
 		public string? HelpSmallTitle2 { get; set; }
 		public string? HelpDescription2 { get; set; }
+        public string? HelpUrl2 { get; set; }
 
-		 public string? ContactTitle { get; set; }
+
+
+        public string? ContactTitle { get; set; }
 
 
 

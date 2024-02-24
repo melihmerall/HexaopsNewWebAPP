@@ -17,6 +17,20 @@ namespace HexaopsNewWebAPP.Database.Context
 
         public DbSet<MainSlider> MainSliders { get; set; }
 
+        public DbSet<MainPartner> MainPartners { get; set; }
+        public DbSet<MainPartnerAssoc> MainPartnerAssocs { get; set; }
+
+        public DbSet<MainFAQ> MainFAQ { get; set; }
+        public DbSet<MainFAQAssoc> MainFAQAssocs { get; set; }
+
+        public DbSet<MainCarousel> MainCarousels { get; set; }
+
+        public DbSet<SocialAccount> SocialAccounts { get; set; }
+        public DbSet<MainFooter> MainFooters { get; set; }
+
+
+
+
 
     }
 }
