@@ -1,4 +1,5 @@
-﻿using HexaopsNewWebAPP.Entities;
+﻿using HexaopsNewWebAPP.Entites;
+using HexaopsNewWebAPP.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace HexaopsNewWebAPP.Database.Context
@@ -10,6 +11,9 @@ namespace HexaopsNewWebAPP.Database.Context
         }
         public DbSet<MainService> MainServices { get; set; }
         public DbSet<MainServiceAssoc> MainServiceAssocs { get; set; }
+
+        public DbSet<MainSlider> MainSliders { get; set; }
+
 
     }
 }
