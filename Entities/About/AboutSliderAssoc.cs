@@ -2,14 +2,12 @@
 
 namespace HexaopsNewWebAPP.Entities.About
 {
-	public class AboutSlider :BaseEntity
+	public class AboutSliderAssoc: BaseEntity
 	{
 		public string? TabBoxTitle { get; set; }
 		public string? TabBoxDescription { get; set; }
 		public string? TabBoxImagePath { get; set; }
-		public string? TabBoxSmallTitle{ get; set; }
-		 public List<AboutSliderAssoc> SliderAssocs { get; set; } = new List<AboutSliderAssoc>();
-
-
+		public string? TabBoxSmallTitle { get; set; }
+		public AboutSlider AboutSlider { get; set; } = new AboutSlider();
 	}
 }
