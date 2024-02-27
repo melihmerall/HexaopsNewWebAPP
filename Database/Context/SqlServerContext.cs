@@ -1,5 +1,6 @@
 ﻿using HexaopsNewWebAPP.Entites;
 using HexaopsNewWebAPP.Entities;
+using HexaopsNewWebAPP.Entities.About;
 using Microsoft.EntityFrameworkCore;
 
 namespace HexaopsNewWebAPP.Database.Context
@@ -27,6 +28,16 @@ namespace HexaopsNewWebAPP.Database.Context
 
         public DbSet<SocialAccount> SocialAccounts { get; set; }
         public DbSet<MainFooter> MainFooters { get; set; }
+
+        public DbSet<AboutHowWeWork> AboutHowWeWorks { get; set; }
+        public DbSet<AboutHowWeWorkAssoc> AboutHowWeWorkAssocs { get; set; }
+        public DbSet<AboutHowWeWorkAssocItems> AboutHowWeWorkAssocItems { get; set; }
+        public DbSet<AboutQuestions> AboutQuestions { get; set; }
+        public DbSet<AboutQuestionsAssoc> AboutQuestionsAssocs { get; set; }
+
+
+
+
 
 
 
