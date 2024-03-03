@@ -6,7 +6,6 @@ namespace HexaopsNewWebAPP.Entities
 	{
 		
 
-		public List<MainSolutionsAsssoc> MainSolutionsAssoc {  get; set; }
 
 
 

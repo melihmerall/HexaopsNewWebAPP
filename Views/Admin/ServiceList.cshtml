@@ -1,0 +1,103 @@
+@using HexaopsNewWebAPP.Entities
+
+@model List<MainService>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basit Tablo</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>MainServices</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+              <th></th>
+                <th></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var i in Model)
+            {
+                <tr>
+                    <td>@i.Id</td>
+                    <td>@i.Title</td>
+                   <td><a href="/admin/createService/@i.Id">Add ServiceAssoc</a></td>
+                    <td><a href="/admin/Service/@i.Id">Edit</a></td>
+                </tr>
+            }
+          
+
+           
+        </tbody>
+    </table>
+
+
+
+
+    <h2>MainServicesAssocs</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>ImagePath</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var i in Model)
+            {
+
+         foreach(var c in i.ServiceAssoc)
+         {
+            <tr>
+                    <td>@c.Id</td>
+                    <td>@c.ServiceTitle</td>
+                     <td>@c.ServiceDescripton</td> 
+                      <td>@c.ServiceImagePath</td> 
+                    <td><a href="/admin/Service/@i.Id">Edit</a></td>
+                </tr>
+
+         }
+                
+            }
+          
+
+           
+        </tbody>
+    </table>
+
+</body>
+</html>

@@ -1,4 +1,5 @@
 ﻿using HexaopsNewWebAPP.Database.Context;
+using HexaopsNewWebAPP.Entities;
 using HexaopsNewWebAPP.Entities.About;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -47,6 +48,71 @@ namespace HexaopsNewWebAPP.Controllers
 
             return View(aboutList);
         }
+
+
+
+
+        // OĞUZ
+
+        [Route("/admin/Service/{id?}")]
+        [HttpGet]
+        public IActionResult Service(int id)
+        {
+            var mainService = _context.MainServices.Include(x => x.ServiceAssoc).Where(x => x.Id == id).FirstOrDefault();
+
+            return View(mainService);
+
+        }
+
+        [Route("/admin/Service/{id?}")]
+        [HttpPost]
+        public IActionResult Service(MainService model)
+        {
+            var main = _context.MainServices.Where(x => x.Id == model.Id).FirstOrDefault();
+            main.Title = model.Title;
+
+            _context.MainServices.Update(main);
+            _context.SaveChanges();
+
+
+            return RedirectToAction("ServiceList");
+
+        }
+
+
+
+        [Route("/admin/serviceList")]
+        [HttpGet]
+        public IActionResult ServiceList()
+
+        {
+            var serviceList = _context.MainServices.Include(x => x.ServiceAssoc).ToList();
+
+
+            return View(serviceList);
+        }
+
+        [Route("/admin/createService/{id?}")]
+        [HttpGet]
+        public IActionResult CreateService(int id)
+
+        {
+            var entity = _context.MainServices.Where(x => x.Id == id).FirstOrDefault();
+            ViewBag.Service = entity;
+            return View();
+        }
+        [Route("/admin/createService/{id?}")]
+        [HttpPost]
+        public IActionResult CreateService(MainServiceAssoc mainServiceAssoc)
+        {
+            
+            _context.MainServiceAssocs.Add(mainServiceAssoc);
+            _context.SaveChanges();
+            return RedirectToAction("serviceList");
+
+        }
+
+
 
     }
 }
