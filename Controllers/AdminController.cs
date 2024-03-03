@@ -92,20 +92,21 @@ namespace HexaopsNewWebAPP.Controllers
             return View(serviceList);
         }
 
-        [Route("/admin/createService/{id?}")]
+        [Route("/admin/createService")]
         [HttpGet]
-        public IActionResult CreateService(int id)
+        public IActionResult CreateService()
 
         {
             // var entity = _context.MainServices.Where(x => x.Id == id).FirstOrDefault();
             ViewBag.Service = id;
             return View();
         }
-        [Route("/admin/createService/{id?}")]
+        [Route("/admin/createService")]
         [HttpPost]
         public IActionResult CreateService(MainServiceAssoc mainServiceAssoc)
         {
-            
+            var entity = _context.MainServices.FirstOrDefault();
+            mainServiceAssoc.MainService = entity;
             _context.MainServiceAssocs.Add(mainServiceAssoc);
             _context.SaveChanges();
             return RedirectToAction("serviceList");
