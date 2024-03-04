@@ -6,7 +6,7 @@ namespace HexaopsNewWebAPP.Entities
 	{
 		public string? Title { get; set; }
 
-		public List<MainServiceAssoc> MainServices { get; set; }
+		public List<MainServiceAssoc> ServiceAssoc { get; set; }
 
 
 	}

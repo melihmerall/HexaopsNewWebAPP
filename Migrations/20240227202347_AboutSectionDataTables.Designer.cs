@@ -4,6 +4,7 @@ using HexaopsNewWebAPP.Database.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HexaopsNewWebAPP.Migrations
 {
     [DbContext(typeof(SqlServerContext))]
-    partial class SqlServerContextModelSnapshot : ModelSnapshot
+    [Migration("20240227202347_AboutSectionDataTables")]
+    partial class AboutSectionDataTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -611,7 +614,7 @@ namespace HexaopsNewWebAPP.Migrations
             modelBuilder.Entity("HexaopsNewWebAPP.Entities.MainServiceAssoc", b =>
                 {
                     b.HasOne("HexaopsNewWebAPP.Entities.MainService", "MainService")
-                        .WithMany("ServiceAssoc")
+                        .WithMany("MainServices")
                         .HasForeignKey("MainServiceId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -651,7 +654,7 @@ namespace HexaopsNewWebAPP.Migrations
 
             modelBuilder.Entity("HexaopsNewWebAPP.Entities.MainService", b =>
                 {
-                    b.Navigation("ServiceAssoc");
+                    b.Navigation("MainServices");
                 });
 #pragma warning restore 612, 618
         }

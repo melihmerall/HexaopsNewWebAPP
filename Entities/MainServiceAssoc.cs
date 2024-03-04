@@ -7,7 +7,6 @@ namespace HexaopsNewWebAPP.Entities
         public string? ServiceTitle { get; set; }
         public string? ServiceDescripton { get; set; }
         public string? ServiceImagePath { get; set; }
-
         public MainService MainService { get; set; }
     }
 }

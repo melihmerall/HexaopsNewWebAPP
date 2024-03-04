@@ -1,5 +1,5 @@
-﻿@using HexaopsNewWebAPP.Entities.About
-@model AboutQuestions
+@using HexaopsNewWebAPP.Entities
+@model MainService
 
 
 @{
@@ -72,8 +72,8 @@
             <label >Title:</label>
             <input type="text" id="name" asp-for="Title" required>
 
-            <label >Description:</label>
-            <input type="text" id="email" asp-for="Descripton" required>
+            @* <label >Description:</label>
+            <input type="text" id="email" asp-for="Descripton" required> *@
 
 
             <button type="submit">Gönder</button>

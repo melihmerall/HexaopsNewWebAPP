@@ -4,6 +4,7 @@ using HexaopsNewWebAPP.Database.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HexaopsNewWebAPP.Migrations
 {
     [DbContext(typeof(SqlServerContext))]
-    partial class SqlServerContextModelSnapshot : ModelSnapshot
+    [Migration("20240303161241_mainSerceeiided")]
+    partial class mainSerceeiided
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -471,7 +474,7 @@ namespace HexaopsNewWebAPP.Migrations
                     b.Property<DateTime>("CreatedDated")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("MainServiceId")
+                    b.Property<int>("MainServiceid")
                         .HasColumnType("int");
 
                     b.Property<string>("ServiceDescripton")
@@ -485,7 +488,7 @@ namespace HexaopsNewWebAPP.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MainServiceId");
+                    b.HasIndex("MainServiceid");
 
                     b.ToTable("MainServiceAssocs");
                 });
@@ -610,13 +613,11 @@ namespace HexaopsNewWebAPP.Migrations
 
             modelBuilder.Entity("HexaopsNewWebAPP.Entities.MainServiceAssoc", b =>
                 {
-                    b.HasOne("HexaopsNewWebAPP.Entities.MainService", "MainService")
+                    b.HasOne("HexaopsNewWebAPP.Entities.MainService", null)
                         .WithMany("ServiceAssoc")
-                        .HasForeignKey("MainServiceId")
+                        .HasForeignKey("MainServiceid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("MainService");
                 });
 
             modelBuilder.Entity("HexaopsNewWebAPP.Entites.MainPartner", b =>
