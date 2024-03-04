@@ -111,6 +111,47 @@ namespace HexaopsNewWebAPP.Controllers
 
         }
 
+        //ELA
+        [Route("/admin/HowWeWork/{id?}")]
+        [HttpGet]
+        public IActionResult Index(int id)
+        {
+            var aboutHowWeWorks = _context.AboutHowWeWorks.Include(x => x.HowWeWorksAssoc).Where(x => x.Id == id).FirstOrDefault();
+
+            return View(aboutHowWeWorks);
+        }
+
+        [Route("/admin/HowWeWork/{id?}")]
+        [HttpPost]
+        public IActionResult Index(AboutHowWeWorks model)
+        {
+            var about = _context.AboutHowWeWorks.Where(x => x.Id == model.Id).FirstOrDefault();
+
+            about.Title = model.Title;
+
+
+            _context.AboutHowWeWorks.Update(about);
+            _context.SaveChanges();
+
+            return RedirectToAction("AboutList");
+        }
+
+        [Route("/admin/HowWeWorkList")]
+        [HttpGet]
+        public IActionResult HowWeWorkList()
+        {
+            var howWeWorkList = _context.AboutHowWeWorks.ToList();
+
+
+            return View(howWeWorkList);
+        }
+
+
+
+
+
+
+
 
 
     }
