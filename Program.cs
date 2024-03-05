@@ -7,6 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 
+
+	
+
 builder.Services.AddDbContext<SqlServerContext>(options =>
 {
     options.UseSqlServer("Server=94.199.202.243;Database=hexa8262_;User Id=hexa12;Password=62Aq4dk_8;TrustServerCertificate=true;");
