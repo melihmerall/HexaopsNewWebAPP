@@ -1,6 +1,6 @@
 
 @using HexaopsNewWebAPP.Entities
-@model MainService
+@model MainFeatureAssoc
 @{
     Layout = null; 
 }
@@ -61,7 +61,10 @@
         <h1>Create Service</h1>
         <form asp-action="CreateService" asp-controller="Admin" method="post">
             <label for="serviceName">Title :</label>
-            <input type="text" id="serviceName" asp-for="Title" required>
+            <input type="text" id="serviceName" asp-for="Smalltitle" required>
+
+          <label for="serviceName">Description :</label>
+            <input type="text" id="serviceName" asp-for="Smalldescription" required>
 
             @* <label for="description">Description:</label>
             <textarea id="description" name="description" rows="4" required></textarea>

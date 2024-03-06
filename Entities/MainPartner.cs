@@ -1,6 +1,6 @@
-﻿using HexaopsNewWebAPP.Entities;
+﻿using HexaopsNewWebAPP.Entites;
 
-namespace HexaopsNewWebAPP.Entites
+namespace HexaopsNewWebAPP.Entities
 {
 	public class MainPartner: BaseEntity
 	{
@@ -8,6 +8,7 @@ namespace HexaopsNewWebAPP.Entites
 	
 
 		public List<MainPartnerAssoc> MainPartnerAssocs { get; set; }
+		
 
 	
 

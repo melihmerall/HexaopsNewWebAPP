@@ -1,5 +1,5 @@
 @using HexaopsNewWebAPP.Entities
-@model MainService
+@model MainFeatures
 
 
 @{
@@ -67,10 +67,15 @@
 
     <div class="form-container">
         <h2>İletişim Formu</h2>
-        <form asp-controller="Admin" asp-action="Service"  method="post">
+        <form asp-controller="Admin" asp-action="Features"  method="post">
             <input asp-for="Id" hidden />
-            <label >Title:</label>
-            <input type="text" id="name" asp-for="Title" required>
+            
+            <label >Big Title:</label>
+            <input type="text" id="name" asp-for="Bigtitle" required>
+
+
+            <label >Bİg Description:</label>
+            <input type="text" id="name" asp-for="Bigdescription" required>
 
             @* <label >Description:</label>
             <input type="text" id="email" asp-for="Descripton" required> *@

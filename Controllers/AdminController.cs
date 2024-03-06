@@ -4,6 +4,7 @@ using HexaopsNewWebAPP.Entities;
 using HexaopsNewWebAPP.Entities.About;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace HexaopsNewWebAPP.Controllers
 {
@@ -53,7 +54,8 @@ namespace HexaopsNewWebAPP.Controllers
 
 
 
-        // OĞUZ
+        #region OGUZ - mainService 
+
 
         [Route("/admin/Service/{id?}")]
         [HttpGet]
@@ -92,30 +94,192 @@ namespace HexaopsNewWebAPP.Controllers
 
             return View(serviceList);
         }
+         
+       
+          // MAİNSERVİCE VERİ EKLEME //
 
         [Route("/admin/createService")]
         [HttpGet]
         public IActionResult CreateService()
 
         {
-           
+
             return View();
         }
 
         [Route("/admin/createService")]
         [HttpPost]
-        public IActionResult CreateService(MainServiceAssoc mainServiceAssoc)
+        public IActionResult CreateService(MainService mainService)
         {
-            var entity = _context.MainServices.FirstOrDefault();
-            mainServiceAssoc.MainService = entity;
+            _context.MainServices.Add(mainService);
+            _context.SaveChanges();
+            return RedirectToAction("serviceList");
+
+        }
+        
+        [Route("/admin/CreateServiceAssoc/")]
+        [HttpGet]
+        public IActionResult CreateServiceAssoc()
+        {
+            return View();
+        }
+
+
+        [Route("/admin/CreateServiceAssoc/")]
+        [HttpPost]
+        public IActionResult CreateServiceAssoc(MainServiceAssoc mainServiceAssoc)
+        {
             _context.MainServiceAssocs.Add(mainServiceAssoc);
             _context.SaveChanges();
             return RedirectToAction("serviceList");
 
         }
 
-        #region ELA - AboutHowWeWork
+
+
+
+
+
+
+
+        #endregion
+
+
+         #region OGUZ - mainPartner
+
+
+
+        [Route("/admin/Partner/{id?}")]
+        [HttpGet]
+        public IActionResult Partner(int id)
+        {
+            var mainPartner = _context.MainPartners.Include(x => x.MainPartnerAssocs).Where(x => x.Id == id).FirstOrDefault();
+
+            return View(mainPartner);
+        }
+
+
+       [Route("/admin/Partner/{id?}")]
+       [HttpPost]
+       public IActionResult Partner(MainPartner model)
+       {
         
+        var main = _context.MainPartners.Where(x => x.Id == model.Id).FirstOrDefault();
+        main.Slogan = model.Slogan;
+        
+         _context.MainPartners.Update(main);
+         _context.SaveChanges();
+
+          return RedirectToAction("PartnerList");
+       } 
+
+
+        [Route("/admin/PartnerList")]
+        [HttpGet]
+        public IActionResult PartnerList()
+         {
+
+           var partnerList = _context.MainPartners.Include(x => x.MainPartnerAssocs).ToList();
+
+            return View(partnerList);
+        
+         }
+
+
+         // MAİNPARTNER VERİ EKLEME
+
+
+         [Route("/admin/CreatePartner")]
+         [HttpGet]
+         public IActionResult CreatePartner()
+         {
+            return View();
+         }
+
+
+
+         [Route("/admin/CreatePartner")]
+         [HttpPost]
+         public IActionResult CreatePartner(MainPartnerAssoc mainPartnerAssoc)
+         {
+            var entity = _context.MainPartners.FirstOrDefault();
+            mainPartnerAssoc.MainPartner = entity;
+            _context.MainPartnerAssocs.Add(mainPartnerAssoc);
+            _context.SaveChanges();
+           return RedirectToAction("partnerList");
+         }
+
+
+
+          #endregion    
+
+
+
+
+        #region OGUZ - mainFeatures
+
+
+        [Route("/admin/Features/{id?}")]
+        [HttpGet]
+        public IActionResult Features(int id) 
+        {
+            var mainFeatures = _context.MainFeatures.Include(x => x.FeatureAssocs).Where(x => x.Id == id).FirstOrDefault();
+            return View();
+
+        }
+
+        [Route("/admin/Features/{id?}")]
+        [HttpPost]
+        public IActionResult Features(MainFeatures model)
+        {
+            var main = _context.MainFeatures.Where(x => x.Id == model.Id).FirstOrDefault();
+            
+            main.Bigtitle = model.Bigtitle;
+            main.Bigdescription = model.Bigdescription;
+
+            _context.MainFeatures.Update(main);
+            _context.SaveChanges();
+
+            return RedirectToAction("featuresList");
+        }
+        
+        [Route("/admin/FeaturesList")]
+        [HttpGet]
+        public IActionResult FeaturesList()
+        {
+            var featuresList = _context.MainFeatures.Include(x => x.FeatureAssocs).ToList();
+
+            return View(featuresList);
+        }
+       
+        
+        //                 MAİNFEATURES VERİ EKLEME               //
+        
+        [Route("/admin/CreateFeatures/")]
+        [HttpGet]
+        public IActionResult CreateFeatures()
+        {
+            return View();   
+        }
+
+        
+        [Route("/admin/CreateFeatures/")]
+        [HttpPost]
+        public IActionResult CreateFeatures(MainFeatures mainFeature)
+        {
+            _context.MainFeatures.Add(mainFeature);
+            _context.SaveChanges();
+            return RedirectToAction("FeaturesList");
+
+        }
+
+         #endregion 
+
+
+
+
+        #region ELA - AboutHowWeWork
+
         [Route("/admin/HowWeWork/{id?}")]
         [HttpGet]
         public IActionResult UpdateAboutHowWeWork(int id)
@@ -163,7 +327,7 @@ namespace HexaopsNewWebAPP.Controllers
 
         public IActionResult CreateAboutHowWeWork(AboutHowWeWorkDto model)
         {
-            if(model.IsTitleApproved == false)
+            if (model.IsTitleApproved == false)
             {
                 model.Title = "";
             }
@@ -184,8 +348,8 @@ namespace HexaopsNewWebAPP.Controllers
         public IActionResult DeleteAboutHowWeWork(int id)
         {
 
-            var entity = _context.AboutHowWeWorks.Where(x=>x.Id ==id).FirstOrDefault();
-            if(entity != null)
+            var entity = _context.AboutHowWeWorks.Where(x => x.Id == id).FirstOrDefault();
+            if (entity != null)
             {
                 _context.AboutHowWeWorks.Remove(entity);
                 _context.SaveChanges();
@@ -194,7 +358,7 @@ namespace HexaopsNewWebAPP.Controllers
             return RedirectToAction("HowWeWorkList");
         }
 
-        
+
         #endregion
 
 
