@@ -94,9 +94,9 @@ namespace HexaopsNewWebAPP.Controllers
 
             return View(serviceList);
         }
-         
-       
-          // MAİNSERVİCE VERİ EKLEME //
+
+
+        // MAİNSERVİCE VERİ EKLEME //
 
         [Route("/admin/createService")]
         [HttpGet]
@@ -116,7 +116,7 @@ namespace HexaopsNewWebAPP.Controllers
             return RedirectToAction("serviceList");
 
         }
-        
+
         [Route("/admin/CreateServiceAssoc/")]
         [HttpGet]
         public IActionResult CreateServiceAssoc()
@@ -145,7 +145,7 @@ namespace HexaopsNewWebAPP.Controllers
         #endregion
 
 
-         #region OGUZ - mainPartner
+        #region OGUZ - mainPartner
 
 
 
@@ -159,59 +159,59 @@ namespace HexaopsNewWebAPP.Controllers
         }
 
 
-       [Route("/admin/Partner/{id?}")]
-       [HttpPost]
-       public IActionResult Partner(MainPartner model)
-       {
-        
-        var main = _context.MainPartners.Where(x => x.Id == model.Id).FirstOrDefault();
-        main.Slogan = model.Slogan;
-        
-         _context.MainPartners.Update(main);
-         _context.SaveChanges();
+        [Route("/admin/Partner/{id?}")]
+        [HttpPost]
+        public IActionResult Partner(MainPartner model)
+        {
 
-          return RedirectToAction("PartnerList");
-       } 
+            var main = _context.MainPartners.Where(x => x.Id == model.Id).FirstOrDefault();
+            main.Slogan = model.Slogan;
+
+            _context.MainPartners.Update(main);
+            _context.SaveChanges();
+
+            return RedirectToAction("PartnerList");
+        }
 
 
         [Route("/admin/PartnerList")]
         [HttpGet]
         public IActionResult PartnerList()
-         {
+        {
 
-           var partnerList = _context.MainPartners.Include(x => x.MainPartnerAssocs).ToList();
+            var partnerList = _context.MainPartners.Include(x => x.MainPartnerAssocs).ToList();
 
             return View(partnerList);
-        
-         }
+
+        }
 
 
-         // MAİNPARTNER VERİ EKLEME
+        // MAİNPARTNER VERİ EKLEME
 
 
-         [Route("/admin/CreatePartner")]
-         [HttpGet]
-         public IActionResult CreatePartner()
-         {
+        [Route("/admin/CreatePartner")]
+        [HttpGet]
+        public IActionResult CreatePartner()
+        {
             return View();
-         }
+        }
 
 
 
-         [Route("/admin/CreatePartner")]
-         [HttpPost]
-         public IActionResult CreatePartner(MainPartnerAssoc mainPartnerAssoc)
-         {
+        [Route("/admin/CreatePartner")]
+        [HttpPost]
+        public IActionResult CreatePartner(MainPartnerAssoc mainPartnerAssoc)
+        {
             var entity = _context.MainPartners.FirstOrDefault();
             mainPartnerAssoc.MainPartner = entity;
             _context.MainPartnerAssocs.Add(mainPartnerAssoc);
             _context.SaveChanges();
-           return RedirectToAction("partnerList");
-         }
+            return RedirectToAction("partnerList");
+        }
 
 
 
-          #endregion    
+        #endregion
 
 
 
@@ -221,7 +221,7 @@ namespace HexaopsNewWebAPP.Controllers
 
         [Route("/admin/Features/{id?}")]
         [HttpGet]
-        public IActionResult Features(int id) 
+        public IActionResult Features(int id)
         {
             var mainFeatures = _context.MainFeatures.Include(x => x.FeatureAssocs).Where(x => x.Id == id).FirstOrDefault();
             return View();
@@ -233,7 +233,7 @@ namespace HexaopsNewWebAPP.Controllers
         public IActionResult Features(MainFeatures model)
         {
             var main = _context.MainFeatures.Where(x => x.Id == model.Id).FirstOrDefault();
-            
+
             main.Bigtitle = model.Bigtitle;
             main.Bigdescription = model.Bigdescription;
 
@@ -242,7 +242,7 @@ namespace HexaopsNewWebAPP.Controllers
 
             return RedirectToAction("featuresList");
         }
-        
+
         [Route("/admin/FeaturesList")]
         [HttpGet]
         public IActionResult FeaturesList()
@@ -251,18 +251,18 @@ namespace HexaopsNewWebAPP.Controllers
 
             return View(featuresList);
         }
-       
-        
+
+
         //                 MAİNFEATURES VERİ EKLEME               //
-        
+
         [Route("/admin/CreateFeatures/")]
         [HttpGet]
         public IActionResult CreateFeatures()
         {
-            return View();   
+            return View();
         }
 
-        
+
         [Route("/admin/CreateFeatures/")]
         [HttpPost]
         public IActionResult CreateFeatures(MainFeatures mainFeature)
@@ -273,7 +273,7 @@ namespace HexaopsNewWebAPP.Controllers
 
         }
 
-         #endregion 
+        #endregion
 
 
 
@@ -360,6 +360,72 @@ namespace HexaopsNewWebAPP.Controllers
 
 
         #endregion
+    
+
+        #region Ela - MainFAQ
+
+        [Route("/admin/MainFAQ/{id?}")]
+        [HttpGet]
+        public IActionResult UpdateMainFAQ(int id)
+        {
+            var mainFAQs = _context.MainFAQ.Include(x => x.MainFAQAssoc).Where(x => x.Id == id).FirstOrDefault();
+
+            return View(mainFAQs);
+        }
+
+        [Route("/admin/MainFAQ/{id?}")]
+        [HttpPost]
+        public IActionResult UpdateMainFAQ(MainFAQ model)
+        {
+            var about = _context.MainFAQ.Where(x => x.Id == model.Id).FirstOrDefault();
+
+            about.Title = model.Title;
+            about.Description = model.Description;
+
+
+
+
+            _context.MainFAQ.Update(about);
+            _context.SaveChanges();
+
+            return RedirectToAction("FAQList");
+        }
+
+        [Route("/admin/FAQList")]
+        [HttpGet]
+        public IActionResult FAQList()
+        {
+            var FAQList = _context.MainFAQ.ToList();
+
+
+            return View(FAQList);
+        }
+        [HttpGet]
+        [Route("/admin/CreateMainFAQ")]
+        public IActionResult CreateMainFAQ()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [Route("/admin/CreateMainFAQ")]
+        public IActionResult CreateMainFAQ(MainFAQ model)
+        {
+           
+            var mainFAQ = new MainFAQ()
+            {
+                Title = model.Title,
+                Description = model.Description
+            };
+
+            _context.MainFAQ.Add(mainFAQ);
+            _context.SaveChanges();
+
+            return RedirectToAction("FAQList");
+        }
+
+        #endregion
+
 
 
 
